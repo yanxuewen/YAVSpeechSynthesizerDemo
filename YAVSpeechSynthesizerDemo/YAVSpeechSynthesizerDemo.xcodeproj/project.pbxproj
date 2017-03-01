@@ -13,6 +13,7 @@
 		4674FEC01E66FFF70086B180 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674FEBE1E66FFF70086B180 /* Main.storyboard */; };
 		4674FEC21E66FFF70086B180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4674FEC11E66FFF70086B180 /* Assets.xcassets */; };
 		4674FEC51E66FFF70086B180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674FEC31E66FFF70086B180 /* LaunchScreen.storyboard */; };
+		4674FECE1E6701680086B180 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4674FECD1E6701680086B180 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4674FEC11E66FFF70086B180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4674FEC41E66FFF70086B180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4674FEC61E66FFF70086B180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4674FECD1E6701680086B180 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4674FECE1E6701680086B180 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			children = (
 				4674FEB41E66FFF70086B180 /* YAVSpeechSynthesizerDemo */,
 				4674FEB31E66FFF70086B180 /* Products */,
+				4674FECC1E6701680086B180 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +83,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4674FECC1E6701680086B180 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4674FECD1E6701680086B180 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +124,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = PFVP9EX2TR;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
