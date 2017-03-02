@@ -14,6 +14,7 @@
 		4674FEC21E66FFF70086B180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4674FEC11E66FFF70086B180 /* Assets.xcassets */; };
 		4674FEC51E66FFF70086B180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4674FEC31E66FFF70086B180 /* LaunchScreen.storyboard */; };
 		4674FECE1E6701680086B180 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4674FECD1E6701680086B180 /* AVFoundation.framework */; };
+		46E804B11E684FFA00AC82E9 /* YSpeechManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E804B01E684FFA00AC82E9 /* YSpeechManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		4674FEC41E66FFF70086B180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4674FEC61E66FFF70086B180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4674FECD1E6701680086B180 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		46E804AF1E684FFA00AC82E9 /* YSpeechManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSpeechManager.h; sourceTree = "<group>"; };
+		46E804B01E684FFA00AC82E9 /* YSpeechManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSpeechManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,8 @@
 				4674FEB91E66FFF70086B180 /* AppDelegate.m */,
 				4674FEBB1E66FFF70086B180 /* ViewController.h */,
 				4674FEBC1E66FFF70086B180 /* ViewController.m */,
+				46E804AF1E684FFA00AC82E9 /* YSpeechManager.h */,
+				46E804B01E684FFA00AC82E9 /* YSpeechManager.m */,
 				4674FEBE1E66FFF70086B180 /* Main.storyboard */,
 				4674FEC11E66FFF70086B180 /* Assets.xcassets */,
 				4674FEC31E66FFF70086B180 /* LaunchScreen.storyboard */,
@@ -171,6 +176,7 @@
 				4674FEBD1E66FFF70086B180 /* ViewController.m in Sources */,
 				4674FEBA1E66FFF70086B180 /* AppDelegate.m in Sources */,
 				4674FEB71E66FFF70086B180 /* main.m in Sources */,
+				46E804B11E684FFA00AC82E9 /* YSpeechManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +333,7 @@
 				4674FECB1E66FFF70086B180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
