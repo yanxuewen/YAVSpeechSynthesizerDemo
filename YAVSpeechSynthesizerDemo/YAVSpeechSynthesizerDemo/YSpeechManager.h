@@ -11,8 +11,7 @@
 typedef NS_ENUM(NSInteger,YSpeechState) {
     YSpeechStateNone,
     YSpeechStateStart,
-    YSpeechStateInSpeech,
-    YSpeechMaStatePause,
+    YSpeechStatePause,
     YSpeechStateContinue,
     YSpeechStateCancel,
     YSpeechStateFinish,
@@ -26,8 +25,12 @@ typedef NS_ENUM(NSInteger,YSpeechState) {
 
 @interface YSpeechManager : NSObject
 
-+ (instancetype)shareSpeechManager;
+@property (weak, nonatomic) id<YSpeechManagerDelegate> delegate;
 
++ (instancetype)shareSpeechManager;
 - (void)startSpeechWith:(NSString *)string;
+- (void)continueSpeech;
+- (void)pauseSpeech;
+- (void)exitSpeech;
 
 @end

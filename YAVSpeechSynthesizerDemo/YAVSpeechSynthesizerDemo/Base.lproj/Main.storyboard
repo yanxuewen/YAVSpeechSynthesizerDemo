@@ -29,12 +29,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1x-Sg-sCd">
+                                <rect key="frame" x="259" y="40" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="5da-6J-9QE"/>
+                                    <constraint firstAttribute="height" constant="44" id="Fmf-h8-j8P"/>
+                                </constraints>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKo-m9-Lq5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Rzz-2G-lFE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="3ij-DT-8h1"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rzz-2G-lFE" secondAttribute="bottom" id="4oL-zj-n4c"/>
                             <constraint firstItem="Rzz-2G-lFE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VFA-ui-rdf"/>
+                            <constraint firstItem="c1x-Sg-sCd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Ys4-Pd-A10"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c1x-Sg-sCd" secondAttribute="trailing" constant="20" id="bCU-tO-TGP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rzz-2G-lFE" secondAttribute="trailing" id="dQe-xz-EVl"/>
                         </constraints>
                     </view>
