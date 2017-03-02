@@ -18,6 +18,7 @@
 @property (assign, nonatomic) double speechVolume;  // [0-1] Default = 1
 @property (strong, nonatomic) AVSpeechSynthesisVoice *voiceType;//zh-CN
 @property (strong, nonatomic) NSString *speechString;
+@property (assign, nonatomic) NSRange speechRange;
 
 @end
 
@@ -62,6 +63,8 @@
     if (error) {
         // Do some error handling
     }
+    
+    _speechRange = NSMakeRange(0, 0);
     [self p_startSpeechWith:_speechArray[_speechCount]];
 }
 
@@ -71,6 +74,7 @@
     speechUtterance.volume = _speechVolume;
     speechUtterance.rate = _speechRate;
     [_speechSynthesizer speakUtterance:speechUtterance];
+    
 }
 
 - (void)continueSpeech {
@@ -82,22 +86,28 @@
 }
 
 - (void)exitSpeech {
-    
     [_speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-    
 }
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance {
     NSLog(@"%s",__func__);
     [self p_speechUpdateState:YSpeechStateStart];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(speechManagerWillChangeSection:string:)]) {
+        [self.delegate speechManagerWillChangeSection:_speechCount string:_speechArray[_speechCount]];
+    }
 }
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
     NSLog(@"%s",__func__);
     _speechCount++;
     if (_speechCount < _speechArray.count) {
+        NSRange range = [_speechString rangeOfString:_speechArray[_speechCount]];
+        if (range.location != NSNotFound && range.length > 0) {
+            _speechRange.location = range.location - 1;
+        }
         [self p_startSpeechWith:_speechArray[_speechCount]];
     } else {
+        
         [self p_speechUpdateState:YSpeechStateFinish];
     }
 }
@@ -119,8 +129,11 @@
 
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance {
     //    NSLog(@"%s",__func__);
-    //    NSLog(@"characterRange:%@",NSStringFromRange(characterRange));
-    
+        NSLog(@"characterRange:%@",NSStringFromRange(characterRange));
+    _speechRange = NSMakeRange(_speechRange.location+characterRange.length, characterRange.length);
+    if (self.delegate && [self.delegate respondsToSelector:@selector(speechManagerWillSpeakRange:)]) {
+        [self.delegate speechManagerWillSpeakRange:_speechRange];
+    }
 }
 
 - (void)p_speechUpdateState:(YSpeechState)state {

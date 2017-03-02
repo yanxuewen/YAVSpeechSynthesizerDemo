@@ -18,8 +18,10 @@ typedef NS_ENUM(NSInteger,YSpeechState) {
 };
 
 @protocol YSpeechManagerDelegate <NSObject>
-
+@optional;
 - (void)speechManagerUpdateState:(YSpeechState)state;
+- (void)speechManagerWillSpeakRange:(NSRange)range;
+- (void)speechManagerWillChangeSection:(NSUInteger)section string:(NSString *)string;
 
 @end
 

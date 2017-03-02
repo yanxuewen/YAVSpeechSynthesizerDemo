@@ -12,10 +12,7 @@
 
 @interface ViewController ()<YSpeechManagerDelegate>
 
-@property (strong, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (strong, nonatomic) NSArray *dataArray;
-@property (assign, nonatomic) NSUInteger speechCount;
 
 @end
 
@@ -29,22 +26,18 @@
     [speechManager startSpeechWith:self.textView.text];
     speechManager.delegate = self;
     
-//    _dataArray = [_textView.text componentsSeparatedByString:@"\n"];
-//    _speechCount = 0;
-//
-//    
-//    _speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
-//    AVSpeechUtterance *speechUtterance = [[AVSpeechUtterance alloc] initWithString:_dataArray[0]];
-//    AVSpeechSynthesisVoice *voiceType = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
-//    speechUtterance.voice = voiceType;
-//    _speechSynthesizer.delegate = self;
-//    speechUtterance.pitchMultiplier = 1;
-//    [_speechSynthesizer speakUtterance:speechUtterance];
-    
 }
 
 - (void)speechManagerUpdateState:(YSpeechState)state {
     NSLog(@"%s state:%zi",__func__,state);
+}
+
+- (void)speechManagerWillChangeSection:(NSUInteger)section string:(NSString *)string {
+    NSLog(@"%s section:%zi  string:%@",__func__,section,string);
+}
+
+- (void)speechManagerWillSpeakRange:(NSRange)range {
+    NSLog(@"%s %@",__func__,NSStringFromRange(range));
 }
 
 - (IBAction)btnAction:(UIButton *)sender {
@@ -56,7 +49,6 @@
         [[YSpeechManager shareSpeechManager] pauseSpeech];
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
